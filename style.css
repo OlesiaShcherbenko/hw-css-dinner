@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* 
+CSS NORMALIZE 
+*/
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 
+HEADER
+*/
+
+.header {
+  background-color: #4a4f56;
+  color: #ff8984;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 12px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* 
+MAIN 
+*/
+
+.main {
+  background-color: #3b3f45;
+  padding-top: 20px;
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 534px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+  color: #ffffff;
+}
+
+.list-item {
+  padding: 12px;
+  background-color: #88839e;
+}
+
+[type] {
+  margin-right: 16px;
+}
+
+span {
+  font-size: 11px;
+}
+
+.list-item:hover {
+  background-color: #625e77;
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  transition: all 0.1s ease-in;
+}
+
+.list-item:active {
+    background-color: #FF8984;
+    transition: all 0.1s ease-in;
+}
+
+/* Why background-color doesn't cover hole space of item? */
+/* How to fill underline of small text? (finde answer in video of lesson 9) */
+input[type]:checked + label {
+  text-decoration: line-through;
+  background-color: #7a7593;
+}
+
+.list-item:has(input[type]:checked) {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+button {
+  max-width: 534px;
+  width: 100%;
+  padding: 12px 200px;
+  margin: 45px 0;
+  font-size: 18px;
+  color: #ff8984;
+}
