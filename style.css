@@ -1,3 +1,15 @@
+:root {
+  --bg-dark-grey: #3b3f45;
+  --bg-light-grey: #4a4f56;
+  --text-disabled: #9b96ac;
+  --color-accent: #ff8984;
+  --color-primary-light: #88839e;
+  --color-primary-medium: #7a7593;
+  --color-primary-dark: #625e77;
+  --white: #fff;
+  --black: #000;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 /* 
@@ -43,8 +55,8 @@ HEADER
 */
 
 .header {
-  background-color: #4a4f56;
-  color: #ff8984;
+  background-color: var(--bg-light-grey);
+  color: var(--color-accent);
   text-align: center;
   padding-top: 20px;
   padding-bottom: 12px;
@@ -61,7 +73,7 @@ MAIN
 */
 
 .main {
-  background-color: #3b3f45;
+  background-color: var(--bg-dark-grey);
   padding-top: 20px;
   flex-grow: 1;
 }
@@ -73,12 +85,21 @@ MAIN
 
 .list {
   list-style: none;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .list-item {
   padding: 12px;
-  background-color: #88839e;
+  cursor: pointer;
+  background-color: var(--color-primary-light);
+}
+
+.list-item input + label {
+  cursor: pointer;
+}
+
+.list-item:nth-child(even) {
+  background-color: var(--color-primary-medium);
 }
 
 [type] {
@@ -89,27 +110,41 @@ span {
   font-size: 11px;
 }
 
+/* How to fill underline of small text? (finde answer in video of lesson 10) */
+/* The solution from video doesn't work in my case */
+span::after {
+  display: inline-block;
+  text-decoration: inherit;
+}
+
 .list-item:hover {
-  background-color: #625e77;
-  border-top: 3px solid #ffffff;
-  border-bottom: 3px solid #ffffff;
+  background-color: var(--color-primary-dark);
+  border-top: 3px solid var(--white);
+  border-bottom: 3px solid var(--white);
   transition: all 0.1s ease-in;
 }
 
 .list-item:active {
-    background-color: #FF8984;
-    transition: all 0.1s ease-in;
+  background-color: var(--color-accent);
+  transition: all 0.1s ease-in;
 }
 
-/* Why background-color doesn't cover hole space of item? */
-/* How to fill underline of small text? (finde answer in video of lesson 9) */
+/* How to provide an opportunity for users to click anywhere for to strickthrough the item? */
+
 input[type]:checked + label {
   text-decoration: line-through;
-  background-color: #7a7593;
+  color: var(--text-disabled);
 }
 
 .list-item:has(input[type]:checked) {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--white);
+  color: var(--black);
 }
 
 button {
@@ -118,5 +153,7 @@ button {
   padding: 12px 200px;
   margin: 45px 0;
   font-size: 18px;
-  color: #ff8984;
+  color: var(--color-accent);
+  background-color: var(--bg-light-grey);
+  border: none;
 }
